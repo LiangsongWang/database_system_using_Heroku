@@ -22,7 +22,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => res.render('pages/index'));
+app.get('/', (req, res) => res.render('pages/home'));
 app.get('/home', (req, res) => res.render('pages/home'));
 app.get('/add', (req, res) => res.render('pages/add'));
 app.get('/del', (req, res) => res.render('pages/del'));
@@ -77,6 +77,20 @@ app.post('/add_person', (req, res) => {
 app.post('/del_person', (req, res) => {
   console.log("post request for /add_person");
   var name = req.body.name;
+  res.send(`delete a person  name: ${ name }`);
+  pool.query(
+    `DELETE FROM Person WHERE name='${ name }'`,
+    (err, res) => {
+      console.log(err, res);
+    }
+
+  );
+
+});
+
+app.get('/del_person/:name', (req, res) => {
+  console.log("post request for /add_person");
+  var name = req.params.name;
   res.send(`delete a person  name: ${ name }`);
   pool.query(
     `DELETE FROM Person WHERE name='${ name }'`,

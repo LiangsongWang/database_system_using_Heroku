@@ -6,12 +6,19 @@
 
 </head>
 
-<body>
 
+<body>
+<META HTTP-EQUIV="Refresh" content="10">
   <% include ../partials/nav.ejs %>
 
   <div class="container">
     <h2>Display page</h2>
+    here the blocks heights are based on the person height, <br>
+    the width is based on the size of the person,<br>
+    the color is based on the type the person.<br>
+    <br>
+    <br>
+    tab on the block can go to see the details of the person or delete it.<br>
     <table border="1" cellspacing="0" cellpadding="0">
       <% rows.forEach(function(r) { %>
       <tr>
@@ -46,6 +53,7 @@
     var but = document.getElementById("<%= r.name %>");
     but.style.backgroundColor = a;
     but.style.height = "<%=r.height%>px";
+    but.style.width = "<%=r.size%>px";
     but.onclick = function() {
       window.open("/person/" + this.id);
     };

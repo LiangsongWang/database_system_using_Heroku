@@ -7,9 +7,10 @@
 <body>
 
 <% include ../partials/nav.ejs %>
-
+<META HTTP-EQUIV="Refresh" content="3">
 <div class="container">
 <h2>Database Results</h2>
+this page Refresh every 3 seconds to make sure users get the latest data.<br>
 
 <ul>
   <table border="1" cellspacing="0" cellpadding="0">
@@ -18,6 +19,7 @@
       <td>size</td>
       <td>height</td>
       <td>type</td>
+      <td>delete</td>
     </tr>
     <% rows.forEach(function(r) { %>
       <tr>
@@ -27,6 +29,9 @@
         <td><%=r.size%></td>
         <td><%=r.height%></td>
         <td><%=r.type%></td>
+        <td>
+        <button type="button" id="<%= r.name %>">delete</button>
+        </td>
       </tr>
     <% }); %>
   </table>
@@ -53,4 +58,13 @@ th,td {
 </div>
 
 </body>
+<script>
+  var butArr=document.getElementsByTagName('BUTTON');
+  for (var i = 0, len = butArr.length; i < len; i++) {
+    butArr[i].onclick=function(){
+      window.open("/del_person/" +this.id);
+  };
+  }
+
+</script>
 </html>
