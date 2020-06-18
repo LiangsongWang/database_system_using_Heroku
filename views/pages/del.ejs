@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <% include ../partials/header.ejs %>
+  </head>
+  <% include ../partials/nav.ejs %>
+  <body>
+    <div class="container">
+
+    <h2>delete a person</h2> <br><br>
+    <form action="/del_person" method="post">
+    name:<br>
+    <input type="text" name="name" value="name">
+    <br><br>
+    <input type="submit" value="DELETE">
+    <a href="/home">go back</a><br>
+  </div>
+
+  </body>
+</html>

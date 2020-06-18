@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/header.ejs %>
+
+</head>
+
+<body>
+
+  <% include ../partials/nav.ejs %>
+
+  <div class="container">
+    <h2>Display page</h2>
+    <table border="1" cellspacing="0" cellpadding="0">
+      <% rows.forEach(function(r) { %>
+      <tr>
+        <button id="<%= r.name %>" type="button" name="button"><%= r.name %></button>
+        &nbsp;
+      </tr>
+      <% }); %>
+    </table>
+    <br><br><br>
+  </div>
+
+</body>
+
+<script>
+  <% rows.forEach(function(r) { %>
+    var a = "red";
+    if ("<%=r.type%>".trim() == "B") {
+      a = "blue";
+    }
+    if ("<%=r.type%>".trim() == "C") {
+      a = "pink";
+    }
+    if ("<%=r.type%>".trim() == "D") {
+      a = "yellow";
+    }
+    if ("<%=r.type%>".trim() == "E") {
+      a = "green";
+    }
+    if ("<%=r.type%>".trim() == "F") {
+      a = "grey";
+    }
+    var but = document.getElementById("<%= r.name %>");
+    but.style.backgroundColor = a;
+    but.style.height = "<%=r.height%>px";
+    but.onclick = function() {
+      window.open("/person/" + this.id);
+    };
+    <% }); %>
+
+</script>
+
+
+</html>

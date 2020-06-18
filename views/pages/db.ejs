@@ -12,9 +12,42 @@
 <h2>Database Results</h2>
 
 <ul>
+  <table border="1" cellspacing="0" cellpadding="0">
+    <tr>
+      <td>name</td>
+      <td>size</td>
+      <td>height</td>
+      <td>type</td>
+    </tr>
     <% rows.forEach(function(r) { %>
-        <li><%= r.uid %>,<%=r.fname%>,<%=r.age%></li>
+      <tr>
+
+
+        <td><%= r.name %></td>
+        <td><%=r.size%></td>
+        <td><%=r.height%></td>
+        <td><%=r.type%></td>
+      </tr>
     <% }); %>
+  </table>
+<style media="screen">
+table {
+   border-collapse: collapse;
+   font-family: Futura, Arial, sans-serif;
+}
+caption {
+   font-size: larger;
+   margin: 1em auto;
+}
+th,td {
+   padding: .65em;
+}
+th,td {
+   border-bottom: 1px solid #ddd;
+   border-top: 1px solid #ddd;
+   text-align: center;
+}
+</style>
 </ul>
 
 </div>

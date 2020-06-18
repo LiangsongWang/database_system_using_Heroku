@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <% include ../partials/header.ejs %>
+  </head>
+  <% include ../partials/nav.ejs %>
+  <body>
+    <div class="container">
+
+
+    <h2>Add a person</h2> <br><br>
+    <form action="/add_person" method="post">
+    name:<br>
+    <input type="text" name="name" value="name">
+    <br>
+    size:<br>
+    <input type="number" name="size" value="0">
+    <br>
+    height:<br>
+    <input type="number" name="height" value="0">
+    <div class="select_menu">
+            <a>type:</a><br>
+            <input id="type" type="text" name="cType" list="type_list">
+            <datalist id="type_list">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>F</option>
+            </datalist>
+    </div>
+    <br><br>
+    <input type="submit" value="Submit">
+    <a href="/home.html">go back</a><br>
+    </form>
+        </div>
+  </body>
+</html>
